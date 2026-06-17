@@ -7,6 +7,7 @@ const path = require("path");
 const corsOptions = require("./config/corsConfig");
 const authRoutes = require("./routes/auth.routes");
 const productosRoutes = require("./routes/productos.routes");
+const meRoutes = require("./routes/me.routes");
 
 const app = express();
 
@@ -21,5 +22,6 @@ app.use(morgan("combined", { stream: infoLog }));
 
 app.use(authRoutes);
 app.use(productosRoutes);
+app.use(meRoutes);
 
 module.exports = app;
