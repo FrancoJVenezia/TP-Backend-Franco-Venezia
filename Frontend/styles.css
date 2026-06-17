@@ -176,9 +176,6 @@ header {
   height: 2rem;
   cursor: pointer;
   color: rgb(var(--color-3));
-  background: none;
-  border: none;
-  padding: 0;
 }
 
 .action-btn svg {
