@@ -1,8 +1,17 @@
 {
+  "name": "FrancoShop Backend",
+  "version": "1.0.0",
+  "description": "Backend de la aplicación FrancoShop",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
   "dependencies": {
     "cors": "^2.8.6",
     "express": "^5.2.1",
-    "express-rate-limit": "^8.4.1",
+    "express-rate-limit": "^8.5.2",
+    "express-validator": "^7.3.2",
     "jsonwebtoken": "^9.0.3",
     "morgan": "^1.10.1",
     "sanitize-html": "^2.17.3"

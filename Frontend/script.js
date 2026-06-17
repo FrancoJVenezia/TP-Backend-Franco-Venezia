@@ -1,5 +1,5 @@
 import Auth from './auth.js';
-const server_domain = "http://localhost:3443" 
+const server_domain = "https://localhost:3443" 
 
 document.getElementById("loginForm").addEventListener("submit", async(event) => {
   event.preventDefault();
@@ -9,14 +9,14 @@ document.getElementById("loginForm").addEventListener("submit", async(event) => 
 
   let error = "";
 
-  if (!user &&  typeof user == 'string') {
+  if (!user) {
     error += "El nombre de usuario es requerido. ";
   }
   if (user.length < 4 || user.length > 50) {
     error += "El nombre de usuario debe tener entre 4 y 50 caracteres. "
   }
   
-  if (!pass &&  typeof pass == 'string') {
+  if (!pass) {
     error += "La contraseña es requerida. ";
   }
 
@@ -39,7 +39,6 @@ document.getElementById("loginForm").addEventListener("submit", async(event) => 
     Auth.setToken(data.accessToken);
     alert("¡Accediste correctamente!");
     showHome();
-    console.log("Token almacenado:", Auth.getToken());
   } else {
     alert("Hubo un error al iniciar sesion. Revisá el usuario y contraseña y volvé a intentarlo más tarde.")
     console.error("Error en el login");
@@ -92,7 +91,7 @@ document.getElementById("loginForm").addEventListener("submit", async(event) => 
 // // LOGOUT - LIMPIAR TOKEN 
 // document.getElementById("logoutBtn").addEventListener("click", async () => {
 //   Auth.clearToken(); // Borrar token de memoria
-//   await fetch(server_domain+"/logout", {
+//   await fetch(server_domain + "/logout", {
 //     method: "POST",
 //     credentials: "include",
 //   });
