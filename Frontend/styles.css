@@ -147,6 +147,7 @@ header {
 
 .product {
 	display: flex;
+  width: 100%;
 }
 
 .product-info {
@@ -161,4 +162,24 @@ header {
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
+  align-items: center;
+}
+
+.action-btn-container {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem;
+}
+
+.action-btn {
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  color: rgb(var(--color-3));
+}
+
+.create-btn {
+  display: block;
+  padding: 3rem;
+  margin-bottom: 2rem;
 }
