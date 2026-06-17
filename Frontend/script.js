@@ -125,13 +125,33 @@ function showHome() {
 }
 
 function showLogin() {
-  console.log("funciona=?");
+  if(Auth.getToken()) return;
   hideAll();
   loginContainer.classList.remove("d-none");
 }
 
-function showProducts() {
+async function showProducts() {
   hideAll();
+
+  const response = await fetch(server_domain + "/productos", {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+
+    let msg = ""
+
+    for (const item of data) {
+      msg += `<div class="card product"><div class="product-info"><p>${item.name}</p> <p>$${item.price}</p>  <p>(${item.stock} unidades disponibles)</p></div></div>`
+    }
+    productsContainer.innerHTML = msg;
+    console.log(data)
+  } else {
+    console.error("Error en al traer los productos");
+  }
+
   productsContainer.classList.remove("d-none");
 }
 
